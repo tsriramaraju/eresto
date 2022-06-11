@@ -21,3 +21,9 @@ export * from "./users/getUsers";
 export * from "./users/addToCart";
 export * from "./users/removeCart";
 export * from "./users/updateCart";
+
+export * from "./tables/createTable";
+export * from "./tables/getTables";
+export * from "./tables/removeTable";
+export * from "./tables/updateTable";
+export * from "./tables/getTable";
