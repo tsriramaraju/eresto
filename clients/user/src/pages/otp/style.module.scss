@@ -1,0 +1,107 @@
+@use "scss/breakpoints";
+@use "scss/config";
+@use "scss/mixins";
+
+.container {
+  width: 100%;
+  height: 100%;
+  //   background-color: config.$dark_shade;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+
+  .back {
+    font-size: 1.5rem;
+    color: config.$light_accent;
+    align-self: flex-start;
+  }
+
+  .title {
+    font-family: config.$font;
+    font-size: 1.8rem;
+    color: config.$dark_accent;
+    font-weight: 700;
+    margin-top: 5rem;
+  }
+  .description {
+    font-family: config.$font;
+    font-size: 1rem;
+    color: config.$light_accent;
+    font-weight: 400;
+    width: 20rem;
+    text-align: center;
+  }
+  .span {
+    margin: 0 0.25rem;
+  }
+  .otpInput {
+    border: solid 1px config.$light_shade;
+    border-radius: config.$br_small;
+    padding: 0.25rem;
+    color: config.$dark_shade;
+    font-size: 3rem;
+    @include mixins.disableSelect();
+
+    //     &.focus {
+    //       border: solid 1px config.$main-brand;
+    //       color: config.$light_accent;
+    //       @include mixins.disableSelect();
+    //     }
+  }
+  .otpContainer {
+    margin-top: 1.5rem;
+  }
+
+  .button {
+    margin-top: 5rem;
+    width: 90%;
+    background-color: config.$dark_shade;
+    color: white;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: config.$font;
+    height: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: config.$br_small;
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  .table {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 12rem;
+
+    .heading {
+      font-family: config.$font;
+      font-size: 2rem;
+      color: config.$dark_accent;
+      font-weight: 700;
+    }
+    .description {
+      font-family: config.$font;
+      font-size: 1rem;
+      color: config.$light_accent;
+      font-weight: 400;
+      width: 20rem;
+      text-align: center;
+
+      .span {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+    }
+  }
+}

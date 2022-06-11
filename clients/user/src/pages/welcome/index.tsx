@@ -1,5 +1,6 @@
 import { useAppSelector } from "hooks/redux";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./style.module.scss";
 
 const WelcomeScreen = () => {
@@ -7,6 +8,8 @@ const WelcomeScreen = () => {
   const {
     info: { guests, mobile, name, tableNo },
   } = useAppSelector((state) => state);
+
+  const navigate = useNavigate();
 
   const [input, setInput] = useState({
     mobile,
@@ -19,7 +22,7 @@ const WelcomeScreen = () => {
       <img className={styles.image} src="https://inresto.com/wp-content/themes/inresto/images/logo.svg" alt="" />
       {!toggle && (
         <div
-          onClick={() => {
+          onClick={(e) => {
             setToggle(true);
           }}
           className={styles.button}
@@ -71,7 +74,7 @@ const WelcomeScreen = () => {
         </form>
         <div
           onClick={() => {
-            setToggle(false);
+            navigate("/otp");
           }}
           className={styles.button}
         >
