@@ -11,6 +11,7 @@ interface ProductAttrs {
   spiceLevel: boolean;
   processingTime: number;
   disable?: boolean;
+  category: string;
 }
 
 interface ProductModel extends Model<ProductDoc> {
