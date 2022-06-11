@@ -46,7 +46,7 @@ const Layout = ({ children }: props) => {
   //        preserveAspectRatio: "xMidYMid slice",
   //      },
   //    };
-  return isCompatible ? <div className={styles.container}></div> : <div className={styles.container}>wrong device buddy</div>;
+  return isCompatible ? <div className={styles.container}>{children}</div> : <div className={styles.container}>wrong device buddy</div>;
 };
 
 export default Layout;

@@ -1,0 +1,77 @@
+@use "scss/breakpoints";
+@use "scss/config";
+@use "scss/mixins";
+
+.container {
+  background-color: config.$dark_shade;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 6rem;
+  position: relative;
+  justify-content: center;
+
+  .image {
+    margin-bottom: 10rem;
+  }
+  .button {
+    position: absolute;
+    bottom: 10rem;
+    width: 80%;
+    color: white;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: config.$font;
+    background-color: config.$dark_accent;
+    border-radius: config.$br_small;
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+  .overlay {
+    background-color: config.$light_shade;
+    padding: 0;
+    border-radius: config.$br_medium;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0rem;
+    transition: all 0.5s ease-in;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &.active {
+      height: 30rem;
+      padding: 2rem;
+    }
+
+    .heading {
+      width: 100%;
+      font-size: 1.6rem;
+      color: config.$dark_shade;
+      font-family: config.$font;
+      font-weight: 600;
+    }
+    .description {
+    }
+
+    .textField {
+      .title {
+      }
+      .input {
+      }
+    }
+
+    .button {
+      position: static;
+      width: 100%;
+    }
+  }
+}

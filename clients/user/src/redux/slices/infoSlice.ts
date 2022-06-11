@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Info } from "interfaces/info";
 import { checkStorage, clearStorage, persistStorage } from "utils/localStorage";
 
-const initialState = checkStorage("info") || {
+const initialState: Info = checkStorage("info") || {
   guests: 0,
   tableNo: 0,
   mobile: 0,
@@ -27,3 +27,7 @@ export const infoSlice = createSlice({
     },
   },
 });
+
+export const { setInfo, updateInfo, clearInfo } = infoSlice.actions;
+
+export default infoSlice.reducer;
