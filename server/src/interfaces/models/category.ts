@@ -11,10 +11,9 @@ interface CategoryAttrs {
  */
 interface CategoryDoc extends Document {
   _id: string;
-  number: string;
-  seats: number;
-  orders: string[];
-  vacantSeats: number;
+  name: string;
+  description: string;
+  image: string;
 }
 
 export { CategoryDoc, CategoryAttrs };
