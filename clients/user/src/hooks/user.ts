@@ -1,4 +1,4 @@
-import { mobileLoginAPI, mobileSignupAPI, sendOtpAPI, silentLoginAPI } from "api/user";
+import { sendOtpAPI, silentLoginAPI, verifyOtpAPI } from "api/user";
 import { AxiosError } from "axios";
 import { OtpAttrs, User } from "interfaces";
 import { useMutation, useQuery, useQueryClient } from "react-query";
@@ -84,9 +84,10 @@ export const useUserMutation = () => {
     };
   };
 
-  const mobileLogin = useMutation((data: { mobile: number; otp: string }) => mobileLoginAPI(data), mutation("Login Successful"));
-
-  const mobileSignUp = useMutation((data: { mobile: number; otp: string }) => mobileSignupAPI(data), mutation("Signup Successful"));
+  const verifyOtp = useMutation(
+    (data: { mobile: number; otp: string; table?: number; guests: number }) => verifyOtpAPI(data),
+    mutation(" Successful")
+  );
 
   const sendOtp = useMutation((data: OtpAttrs) => sendOtpAPI(data), {
     onSuccess: (data) => {
@@ -110,13 +111,11 @@ export const useUserMutation = () => {
     queryClient.removeQueries("user");
   };
 
-  const loading = mobileLogin.isLoading || mobileSignUp.isLoading || sendOtp.isLoading;
+  const loading = verifyOtp.isLoading || sendOtp.isLoading;
 
   return {
     logOut,
-
-    mobileLogin,
-    mobileSignUp,
+    verifyOtp,
     sendOtp,
     loading,
   };

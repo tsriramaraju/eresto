@@ -29,8 +29,8 @@ export interface CartItem {
 
 export interface OtpAttrs {
   mobile: number;
-  image?: string;
-  name?: string;
-  email?: string;
+
+  name: string;
+
   recaptchaToken: string;
 }
