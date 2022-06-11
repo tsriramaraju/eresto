@@ -6,16 +6,18 @@ enum SpiceLevel {
   low,
 }
 
+interface CartItem {
+  name: string;
+  image: string;
+  price: number;
+  addons: string[];
+  quantity: number;
+  spiceLevel?: SpiceLevel;
+}
+
 interface Cart {
   _id: string;
-  items: {
-    name: string;
-    image: string;
-    price: number;
-    addons: string[];
-    quantity: number;
-    spiceLevel?: SpiceLevel;
-  }[];
+  items: CartItem[];
   finalPrice: number;
 }
 
@@ -39,4 +41,4 @@ interface UserDoc extends Document {
   orders: string[];
 }
 
-export { UserDoc, UserAttrs, UserModel, Cart, SpiceLevel };
+export { UserDoc, UserAttrs, UserModel, Cart, SpiceLevel, CartItem };

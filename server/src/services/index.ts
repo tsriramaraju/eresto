@@ -12,3 +12,10 @@ export * from "./waitList/addToWaitList";
 export * from "./waitList/getWaitList";
 export * from "./waitList/removeFromWaitList";
 export * from "./waitList/createWaitList";
+
+export * from "./users/addCart";
+export * from "./users/getCart";
+export * from "./users/removeCart";
+export * from "./users/createUser";
+export * from "./users/getUsers";
+export * from "./users/updateCartQuantity";
