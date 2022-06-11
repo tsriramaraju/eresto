@@ -1,5 +1,4 @@
 import { Router, Request, Response } from "express";
-import { isUser } from "../../middlewares/isUser";
 import { getUsers } from "../../services";
 
 const router = Router();
@@ -10,13 +9,13 @@ const router = Router();
  *  @access    public
  *  @returns   status
  */
-router.get("/:id", [isUser], async (req: Request, res: Response) => {
-  const id = req.currentUser!._id;
-  const response = await getUsers({ id });
+router.get("/mobile/:mobile", async (req: Request, res: Response) => {
+  const mobile = +req.params.mobile;
+  const response = await getUsers({ mobile });
 
   res.status(201).json(response);
 });
 
-export { router as getUserRouter };
+export { router as searchUserRouter };
 
 //  TODO : add validations later

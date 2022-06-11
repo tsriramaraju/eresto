@@ -5,5 +5,6 @@ export * from "./models/tables";
 export * from "./models/waitList";
 export * from "./models/category";
 export * from "./models/razorpayOrders";
+export * from "./models/otp";
 
 export * from "./payloads";

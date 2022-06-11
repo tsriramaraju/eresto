@@ -15,7 +15,7 @@ export * from "./waitlist/getWaitList";
 export * from "./waitlist/removeWaitlist";
 export * from "./waitlist/createWaitList";
 
-export * from "./users/createUser";
+export * from "./users/verifyOTP";
 export * from "./users/getUser";
 export * from "./users/getUsers";
 export * from "./users/addToCart";

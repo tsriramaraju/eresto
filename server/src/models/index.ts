@@ -5,3 +5,4 @@ export * from "./user.model";
 export * from "./waitList.model";
 export * from "./category.model";
 export * from "./razorpay.model";
+export * from "./otp.model";
