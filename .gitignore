@@ -1,0 +1,15 @@
+out
+node_modules
+coverage
+.vscode
+.vscodecounter
+commands.txt
+secrets.env
+dev.env
+prod.env
+.env
+build
+.cache
+./public
+firebaseKey.json
+firebaseKey1.json
