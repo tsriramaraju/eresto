@@ -9,3 +9,8 @@ export * from "./products/getProducts";
 export * from "./products/removeProduct";
 export * from "./products/updateProduct";
 export * from "./products/getProduct";
+
+export * from "./waitlist/addToWaitlist";
+export * from "./waitlist/getWaitList";
+export * from "./waitlist/removeWaitlist";
+export * from "./waitlist/createWaitList";
