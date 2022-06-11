@@ -4,12 +4,36 @@ import OtpInput from "react-otp-input";
 import { useState } from "react";
 import { BarLoader, BeatLoader, SyncLoader } from "react-spinners";
 import { useNavigate } from "react-router";
+import { useUserMutation } from "hooks/user";
+import { useAppSelector } from "hooks/redux";
 
 const OTPScreen = () => {
   const [loading, setLoading] = useState(false);
   const [otp, setOtp] = useState("");
   const [table, setTable] = useState(0);
   const navigate = useNavigate();
+  const { verifyOtp } = useUserMutation();
+  const {
+    info: { guests, mobile, name, tableNo },
+  } = useAppSelector((state) => state);
+  const handleSubmit = () => {
+    setLoading(true);
+    verifyOtp.mutate(
+      { guests, mobile, otp, table: tableNo ? tableNo : undefined },
+      {
+        onSuccess: (res) => {
+          if (typeof res === "number") {
+            navigate("/queue");
+          } else {
+            setTable(res.number);
+            setTimeout(() => {
+              navigate("/list");
+            }, 3000);
+          }
+        },
+      }
+    );
+  };
   return (
     <div className={styles.container}>
       <FiArrowLeft
@@ -36,7 +60,9 @@ const OTPScreen = () => {
             focusStyle={`${styles.otpInput} ${styles.focus}`}
             containerStyle={styles.otpContainer}
           />
-          <div className={styles.button}>{loading ? <BeatLoader color="white" size={10} loading={loading} speedMultiplier={0.6} /> : "confirm"}</div>
+          <div onClick={handleSubmit} className={styles.button}>
+            {loading ? <BeatLoader color="white" size={10} loading={loading} speedMultiplier={0.6} /> : "confirm"}
+          </div>
         </>
       )}
 

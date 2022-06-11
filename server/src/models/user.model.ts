@@ -7,7 +7,7 @@ const userSchema = new Schema(
     mobile: { type: Number, required: true, unique: true },
     orders: [{ type: String, required: true, ref: "order" }],
     cart: {
-      finalPrice: { type: Number, required: true },
+      finalPrice: { type: Number, required: true, default: 0 },
       items: [
         {
           name: { type: String, required: true },

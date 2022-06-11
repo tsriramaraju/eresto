@@ -18,6 +18,7 @@
     margin-bottom: 10rem;
   }
   .button {
+    min-height: 3rem;
     position: absolute;
     bottom: 10rem;
     width: 80%;
@@ -65,6 +66,9 @@
       color: config.$light_accent;
       font-family: config.$font;
       font-weight: 400;
+    }
+    .captcha {
+      width: 100%;
     }
     .form {
       width: 100%;

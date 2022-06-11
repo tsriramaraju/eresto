@@ -31,28 +31,29 @@ router.post(
         //     throw new BadRequestError("Mobile no. already exists");
         //   }
         //     register user
-        const identityToolkit = google.identitytoolkit({
-          auth: secrets.googleAuth,
-          version: "v3",
-        });
+        //  FIXME : fix this
+        // const identityToolkit = google.identitytoolkit({
+        //   auth: secrets.googleAuth,
+        //   version: "v3",
+        // });
 
-        const response = await identityToolkit.relyingparty.sendVerificationCode({
-          // @ts-ignore
-          phoneNumber: `+91${mobile}`,
-          recaptchaToken,
-          // key: secrets.googleCaptchaKey,
-        });
+        // const response = await identityToolkit.relyingparty.sendVerificationCode({
+        //   // @ts-ignore
+        //   phoneNumber: `+91${mobile}`,
+        //   recaptchaToken,
+        //   // key: secrets.googleCaptchaKey,
+        // });
 
-        console.log(response);
+        // console.log(response);
 
-        //  FIXME : check ts ignore statements
         // @ts-ignore
-        if (response.data && response.data.sessionInfo) {
+        if (true) {
+          // if (response.data && response.data.sessionInfo) {
           await initiateOTP({
             id: mobile,
             name,
             // @ts-ignore
-            sessionId: response.data.sessionInfo,
+            sessionId: "response.data.sessionInfo",
           });
           res.status(201).json("OTP has sent to your number");
         } else {

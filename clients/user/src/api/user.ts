@@ -9,7 +9,7 @@ export const sendOtpAPI = async (data: OtpAttrs): Promise<string> => {
   return res.data;
 };
 
-export const verifyOtpAPI = async (data: { mobile: number; otp: string; table?: number; guests: number }): Promise<User> => {
+export const verifyOtpAPI = async (data: { mobile: number; otp: string; table?: number; guests: number }): Promise<any> => {
   const res = await axios.post(`${APIurl}/users/`, data);
   return res.data;
 };

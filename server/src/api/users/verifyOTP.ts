@@ -22,20 +22,24 @@ router.post("/", [], async (req: Request, res: Response) => {
       auth: secrets.googleAuth,
       version: "v3",
     });
+    console.log("step3");
 
     const otpData = await OTP.findOne({ mobile });
 
-    await identityToolkit.relyingparty.verifyPhoneNumber({
-      // @ts-ignore
-      code: otp,
-      sessionInfo: otpData?.sessionId,
-    });
+    // await identityToolkit.relyingparty.verifyPhoneNumber({
+    //   // @ts-ignore
+    //   code: otp,
+    //   sessionInfo: otpData?.sessionId,
+    // });
 
     let userDoc: any = await getUsers({ mobile });
 
+    console.log("step2");
     if (!userDoc) {
       userDoc = await createUser({ mobile, name: otpData!.name });
     }
+
+    console.log("step1");
 
     const response = await assignTable({
       customerId: userDoc._id,
@@ -44,11 +48,13 @@ router.post("/", [], async (req: Request, res: Response) => {
       name: otpData!.name,
       tableId: table,
     });
+    console.log("step4");
 
     return res.status(202).json(response);
   } catch (error) {
-    sendSlackNotification({ text: error.response.data.error.message });
-    res.status(500).json({ msg: error.response.data.error.message });
+    console.log(error);
+    // sendSlackNotification({ text: error.response.data.error.message });
+    // res.status(500).json({ msg: error.response.data.error.message });
   }
 });
 

@@ -6,9 +6,7 @@ export const getUsers = async (data: { id?: string; mobile?: number }) => {
     const { id, mobile } = data;
     if (mobile) {
       const user = await User.findOne({ mobile });
-      if (!user) {
-        throw new DatabaseConnectionError("User not found");
-      }
+
       return user;
     }
     if (id) {
