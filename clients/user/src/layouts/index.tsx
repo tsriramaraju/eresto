@@ -1,4 +1,4 @@
-import { useAppDispatch } from "hooks/redux";
+import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { ReactElement, useEffect, useState } from "react";
 import { setKeyboard } from "redux/slices/keyboardSlice";
 import { setPath } from "redux/slices/pathSlice";
@@ -11,6 +11,7 @@ type props = {
 
 const Layout = ({ children }: props) => {
   const [isCompatible, setCompatible] = useState(false);
+  const { keyboard } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -46,7 +47,11 @@ const Layout = ({ children }: props) => {
   //        preserveAspectRatio: "xMidYMid slice",
   //      },
   //    };
-  return isCompatible ? <div className={styles.container}>{children}</div> : <div className={styles.container}>wrong device buddy</div>;
+  return isCompatible ? (
+    <div className={`${styles.container} ${keyboard && styles.keyboard}`}>{children}</div>
+  ) : (
+    <div className={styles.container}>wrong device buddy</div>
+  );
 };
 
 export default Layout;

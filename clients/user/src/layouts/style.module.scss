@@ -9,4 +9,9 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+
+  &.keyboard {
+    min-height: 600px;
+    overflow-y: auto;
+  }
 }

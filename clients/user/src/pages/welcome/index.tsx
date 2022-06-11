@@ -29,42 +29,54 @@ const WelcomeScreen = () => {
       )}
       <div className={`${styles.overlay} ${toggle && styles.active}`}>
         <p className={styles.heading}>Welcome</p>
-        <p className={styles.description}>please enter required fields to book a table</p>
-        <div className={styles.textField}>
-          <p className={styles.title}>Mobile*</p>
-          <input
-            type="tel"
-            name="mobile"
-            className={styles.input}
-            value={input.mobile}
-            onChange={(e) => {
-              setInput({ ...input, mobile: +e.target.value });
-            }}
-          />
+        <p className={styles.description}>Please enter required fields to book a table</p>
+        <form className={styles.form}>
+          <div className={styles.textField}>
+            <p className={styles.title}>Mobile*</p>
+            <input
+              type="tel"
+              name="mobile"
+              placeholder="Enter your mobile number"
+              className={styles.input}
+              value={input.mobile === 0 ? "" : input.mobile}
+              onChange={(e) => {
+                setInput({ ...input, mobile: +e.target.value });
+              }}
+            />
+          </div>
+          <div className={styles.textField}>
+            <p className={styles.title}>Name*</p>
+            <input
+              type="text"
+              className={styles.input}
+              placeholder="Enter your name"
+              value={input.name}
+              onChange={(e) => {
+                setInput({ ...input, name: e.target.value });
+              }}
+            />
+          </div>
+          <div className={styles.textField}>
+            <p className={styles.title}>Guests*</p>
+            <input
+              type="number"
+              placeholder="Enter number of guests"
+              className={styles.input}
+              value={input.guests === 0 ? "" : input.guests}
+              onChange={(e) => {
+                setInput({ ...input, guests: +e.target.value });
+              }}
+            />
+          </div>
+        </form>
+        <div
+          onClick={() => {
+            setToggle(false);
+          }}
+          className={styles.button}
+        >
+          Check Availability
         </div>
-        <div className={styles.textField}>
-          <p className={styles.title}>Name*</p>
-          <input
-            type="text"
-            className={styles.input}
-            value={input.name}
-            onChange={(e) => {
-              setInput({ ...input, name: e.target.value });
-            }}
-          />
-        </div>
-        <div className={styles.textField}>
-          <p className={styles.title}>Guests*</p>
-          <input
-            type="number"
-            className={styles.input}
-            value={input.guests}
-            onChange={(e) => {
-              setInput({ ...input, guests: +e.target.value });
-            }}
-          />
-        </div>
-        <div className={styles.button}>Check Availability</div>
       </div>
     </div>
   );
