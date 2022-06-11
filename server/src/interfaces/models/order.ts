@@ -55,4 +55,4 @@ interface OrderDoc extends Document {
   deliveredAt: Date;
 }
 
-export { OrderDoc, OrderAttrs, OrderModel, OrderStatus, ItemStatus };
+export { OrderDoc, OrderAttrs, OrderModel, OrderStatus, ItemStatus, OrderItem };
