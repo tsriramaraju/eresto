@@ -1,0 +1,37 @@
+@use "./config";
+@mixin disableSelect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+@mixin disableScroll {
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+  }
+}
+@mixin minScroll {
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+  }
+}
+
+@mixin text {
+  font-size: 1rem;
+  color: config.$dark_shade;
+  line-height: 1.4rem;
+  font-weight: 400;
+}
