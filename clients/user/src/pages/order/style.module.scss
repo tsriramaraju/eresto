@@ -1,0 +1,115 @@
+@use "scss/breakpoints";
+@use "scss/config";
+@use "scss/mixins";
+
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: config.$light_shade;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  padding-bottom: 4rem;
+  position: relative;
+
+  .lottieContainer {
+    width: 100%;
+    height: 30rem;
+    flex-shrink: 0;
+    overflow: hidden;
+    // background-color: config.$dark_shade;
+  }
+
+  .itemsContainer {
+    width: 90%;
+    height: 8rem;
+    border-radius: config.$br_medium;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 0.5rem;
+    justify-content: space-evenly;
+    .text {
+      font-size: 1.25rem;
+      color: config.$dark_shade;
+      width: 60%;
+      text-align: center;
+      font-weight: 500;
+    }
+    .separator {
+      background-color: config.$light_shade;
+      height: 100%;
+      width: 4px;
+      border-radius: config.$br_small;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .summary {
+        font-size: 1.2rem;
+        color: config.$light_accent;
+        font-weight: 600;
+      }
+      .icon {
+        font-size: 2rem;
+        color: config.$dark_accent;
+      }
+    }
+  }
+
+  .bottom {
+    width: 95%;
+    border-radius: config.$br_small;
+    position: absolute;
+    bottom: 1rem;
+    background-color: white;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+
+    .button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: solid 1px config.$dark_shade;
+      padding: 0.5rem 1rem;
+      border-radius: config.$br_small;
+      color: config.$dark_accent;
+      font-size: 1.1rem;
+      font-weight: 600;
+      font-family: config.$font;
+
+      &:active {
+        transform: scale(0.95);
+        background-color: config.$dark_shade;
+        color: white;
+      }
+    }
+
+    .payButton {
+      background-color: config.$dark_shade;
+      color: white;
+      padding: 1rem;
+      width: 10rem;
+      border-radius: config.$br_small;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+    .progress {
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+}

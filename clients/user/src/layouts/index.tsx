@@ -3,6 +3,8 @@ import { ReactElement, useEffect, useState } from "react";
 import { setKeyboard } from "redux/slices/keyboardSlice";
 import { setPath } from "redux/slices/pathSlice";
 import { isMobile } from "react-device-detect";
+import animationData from "assets/mobile.json";
+import Lottie from "react-lottie";
 import styles from "./style.module.scss";
 
 type props = {
@@ -39,18 +41,21 @@ const Layout = ({ children }: props) => {
     else dispatch(setKeyboard(false));
   };
 
-  //    const defaultOptions = {
-  //      loop: true,
-  //      autoplay: true,
-  //      animationData: animationData,
-  //      rendererSettings: {
-  //        preserveAspectRatio: "xMidYMid slice",
-  //      },
-  //    };
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
   return isCompatible ? (
     <div className={`${styles.container} ${keyboard && styles.keyboard}`}>{children}</div>
   ) : (
-    <div className={styles.container}>wrong device buddy</div>
+    <div className={styles.container}>
+      <Lottie options={defaultOptions} height="50%" width="50%" />
+      <h1 className={styles.text}>Please use a mobile device</h1>
+    </div>
   );
 };
 

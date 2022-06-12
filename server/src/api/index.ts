@@ -27,3 +27,8 @@ export * from "./tables/getTables";
 export * from "./tables/removeTable";
 export * from "./tables/updateTable";
 export * from "./tables/getTable";
+
+export * from "./orders/createOrder";
+export * from "./orders/getOrders";
+export * from "./orders/getOrder";
+export * from "./orders/updateOrder";
