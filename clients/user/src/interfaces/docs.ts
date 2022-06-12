@@ -1,8 +1,8 @@
 export interface ProductDoc {
   _id: string;
   name: string;
-  description: string;
   images: string[];
+  description: string;
   price: number;
   addons: {
     name: string;
@@ -11,6 +11,7 @@ export interface ProductDoc {
   spiceLevel: boolean;
   processingTime: number;
   disable?: boolean;
+  category: string;
 }
 
 export interface CategoryDoc {

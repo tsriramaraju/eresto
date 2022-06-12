@@ -32,14 +32,14 @@ const WelcomeScreen = () => {
 
   const getCaptchaToken = async () => {
     try {
-      let token = recaptchaRef.current?.getValue();
-      if (!token) {
-        token = await recaptchaRef.current?.executeAsync();
+      // let token = recaptchaRef.current?.getValue();
+      // if (!token) {
+      //   token = await recaptchaRef.current?.executeAsync();
 
-        console.log("token");
-      }
-      console.log(token);
-      return token;
+      //   console.log("token");
+      // }
+      // console.log(token);
+      return "token";
     } catch (error) {
       console.log(error);
     }
@@ -110,47 +110,47 @@ const WelcomeScreen = () => {
       <div className={`${styles.overlay} ${toggle && styles.active}`}>
         <p className={styles.heading}>Welcome</p>
         <p className={styles.description}>Please enter required fields to book a table</p>
-        <ReCAPTCHA className={styles.captcha} ref={recaptchaRef} size="invisible" sitekey="6Le1GGIgAAAAAKm1P3p6lgK3IipJraZiQB0vKRAD">
-          <form className={styles.form}>
-            <div className={styles.textField}>
-              <p className={styles.title}>Mobile*</p>
-              <input
-                type="tel"
-                name="mobile"
-                placeholder="Enter your mobile number"
-                className={styles.input}
-                value={input.mobile === 0 ? "" : input.mobile}
-                onChange={(e) => {
-                  setInput({ ...input, mobile: +e.target.value });
-                }}
-              />
-            </div>
-            <div className={styles.textField}>
-              <p className={styles.title}>Name*</p>
-              <input
-                type="text"
-                className={styles.input}
-                placeholder="Enter your name"
-                value={input.name}
-                onChange={(e) => {
-                  setInput({ ...input, name: e.target.value });
-                }}
-              />
-            </div>
-            <div className={styles.textField}>
-              <p className={styles.title}>Guests*</p>
-              <input
-                type="number"
-                placeholder="Enter number of guests"
-                className={styles.input}
-                value={input.guests === 0 ? "" : input.guests}
-                onChange={(e) => {
-                  setInput({ ...input, guests: +e.target.value });
-                }}
-              />
-            </div>
-          </form>
-        </ReCAPTCHA>
+        {/* <ReCAPTCHA className={styles.captcha} ref={recaptchaRef} size="invisible" sitekey="6Le1GGIgAAAAAKm1P3p6lgK3IipJraZiQB0vKRAD"> */}
+        <form className={styles.form}>
+          <div className={styles.textField}>
+            <p className={styles.title}>Mobile*</p>
+            <input
+              type="tel"
+              name="mobile"
+              placeholder="Enter your mobile number"
+              className={styles.input}
+              value={input.mobile === 0 ? "" : input.mobile}
+              onChange={(e) => {
+                setInput({ ...input, mobile: +e.target.value });
+              }}
+            />
+          </div>
+          <div className={styles.textField}>
+            <p className={styles.title}>Name*</p>
+            <input
+              type="text"
+              className={styles.input}
+              placeholder="Enter your name"
+              value={input.name}
+              onChange={(e) => {
+                setInput({ ...input, name: e.target.value });
+              }}
+            />
+          </div>
+          <div className={styles.textField}>
+            <p className={styles.title}>Guests*</p>
+            <input
+              type="number"
+              placeholder="Enter number of guests"
+              className={styles.input}
+              value={input.guests === 0 ? "" : input.guests}
+              onChange={(e) => {
+                setInput({ ...input, guests: +e.target.value });
+              }}
+            />
+          </div>
+        </form>
+        {/* </ReCAPTCHA> */}
         <div onClick={checkAvailability} className={styles.button}>
           {loading ? <BeatLoader color="white" size={10} loading={loading} speedMultiplier={0.6} /> : "Check Availability"}
         </div>

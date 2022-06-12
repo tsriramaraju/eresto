@@ -25,5 +25,10 @@
     border-radius: config.$br_small;
     font-size: 2.5rem;
     color: config.$dark_shade;
+
+    &.active {
+      background-color: config.$dark_shade;
+      color: white;
+    }
   }
 }

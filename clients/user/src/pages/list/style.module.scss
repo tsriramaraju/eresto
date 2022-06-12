@@ -10,13 +10,14 @@
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
+  padding-bottom: 4rem;
   .categories {
     margin-top: 1rem;
     display: flex;
     overflow: auto;
     gap: 1rem;
     width: 95%;
-    height: 7rem;
+    height: 8rem;
     flex-shrink: 0;
     @include mixins.disableScroll();
   }
@@ -30,6 +31,51 @@
     flex-shrink: 0;
     width: 95%;
     height: 100%;
+
     @include mixins.disableScroll();
+  }
+
+  .checkout {
+    position: fixed;
+    bottom: -10.25rem;
+    display: flex;
+    width: 95%;
+    height: 5rem;
+    border-radius: config.$br_small;
+    z-index: 100;
+    background-color: white;
+    box-shadow: config.$shadow_subtle;
+    padding: 0 1rem;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease-in;
+
+    &.active {
+      bottom: 0.25rem;
+    }
+    .row {
+      .text {
+        font-size: 1rem;
+        font-weight: 500;
+        color: config.$light_accent;
+      }
+      .price {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: config.$main_brand;
+      }
+    }
+    .button {
+      background-color: config.$dark_shade;
+      width: 10rem;
+      color: white;
+      border-radius: config.$br_small;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 1.35rem;
+      &:active {
+        transform: scale(0.95);
+      }
+    }
   }
 }

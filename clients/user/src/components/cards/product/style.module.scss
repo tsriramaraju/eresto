@@ -23,6 +23,7 @@
     border-radius: 1rem;
   }
   .details {
+    position: relative;
     display: flex;
     flex-direction: column;
     padding: 0.5rem 0;
@@ -50,6 +51,44 @@
       font-weight: 600;
       margin-top: 0.5rem;
       color: config.$main_brand;
+      position: absolute;
+      bottom: 1rem;
+      left: 0;
+    }
+
+    .pickerBlock {
+      position: absolute;
+      bottom: 1rem;
+      right: 0;
+    }
+    .picker {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.25rem;
+      justify-content: flex-end;
+      padding-right: 1rem;
+      .icon {
+        font-size: 1.2rem;
+        color: config.$dark_accent;
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+      .qty {
+        font-size: 1.5rem;
+        color: config.$light_accent;
+        font-weight: 600;
+      }
+    }
+    .add {
+      font-family: config.$font;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: config.$dark_accent;
+      text-align: end;
+      width: 100%;
+      padding-right: 1rem;
     }
   }
 }

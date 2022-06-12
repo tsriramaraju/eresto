@@ -35,6 +35,7 @@ interface ProductDoc extends Document {
   spiceLevel: boolean;
   processingTime: number;
   disable?: boolean;
+  category: string;
 }
 
 export { ProductDoc, ProductAttrs, ProductModel };

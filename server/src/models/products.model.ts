@@ -16,6 +16,7 @@ const productSchema = new Schema(
     spiceLevel: { type: Boolean, required: true },
     processingTime: { type: Number, required: true },
     disable: Boolean,
+    category: { type: String, required: true },
   },
   { timestamps: true }
 );

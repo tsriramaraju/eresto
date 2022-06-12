@@ -10,11 +10,12 @@ import "./scss/global.scss";
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<WelcomeScreen />} />
+      <Route path="/:table" element={<WelcomeScreen />} />
       <Route path="/otp" element={<OTPScreen />} />
       <Route path="/list" element={<ListScreen />} />
       <Route path="/queue" element={<QueueScreen />} />
       <Route element={<AuthRoute />}></Route>
-      <Route path="/:table" element={<WelcomeScreen />} />
     </Routes>
   );
 }

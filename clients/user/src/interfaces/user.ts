@@ -7,7 +7,6 @@ export interface User {
 }
 
 export interface Cart {
-  _id: string;
   items: CartItem[];
   finalPrice: number;
 }

@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import keyboardReducer from "./slices/keyboardSlice";
 import pathReducer from "./slices/pathSlice";
 import infoReducer from "./slices/infoSlice";
+import cartReducer from "./slices/cartSlice";
 
 export const store = configureStore({
   reducer: {
     keyboard: keyboardReducer,
     path: pathReducer,
     info: infoReducer,
+    cart: cartReducer,
   },
 });
 
