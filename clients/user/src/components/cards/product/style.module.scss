@@ -1,0 +1,55 @@
+@use "scss/breakpoints";
+@use "scss/config";
+@use "scss/mixins";
+
+.container {
+  width: 100%;
+  height: 9rem;
+  overflow: hidden;
+  display: flex;
+  border-radius: config.$br_small;
+  background-color: white;
+  flex-shrink: 0;
+
+  .image {
+    flex-shrink: 0;
+    width: auto;
+    aspect-ratio: 1;
+    padding: 0.5rem;
+    height: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    border-radius: 1rem;
+  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    width: 100%;
+
+    .name {
+      font-family: config.$font;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: config.$dark_shade;
+    }
+    .description {
+      font-family: config.$font;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: config.$light_accent;
+      width: 100%;
+      height: 2.5rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .price {
+      font-family: config.$font;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      color: config.$main_brand;
+    }
+  }
+}

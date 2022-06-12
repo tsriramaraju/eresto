@@ -1,0 +1,29 @@
+@use "scss/breakpoints";
+@use "scss/config";
+@use "scss/mixins";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem 1rem;
+  height: 5rem;
+  width: 100%;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: config.$light_shade;
+
+  .image {
+    height: 2rem;
+  }
+  .cart {
+    background-color: white;
+    padding: 0.65rem;
+    // box-shadow: config.$shadow-soft;
+    border-radius: config.$br_small;
+    font-size: 2.5rem;
+    color: config.$dark_shade;
+  }
+}

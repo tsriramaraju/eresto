@@ -3,6 +3,7 @@ import { Document, Model } from "mongoose";
 interface ProductAttrs {
   name: string;
   images: string[];
+  description: string;
   price: number;
   addons: {
     name: string;
@@ -24,6 +25,7 @@ interface ProductModel extends Model<ProductDoc> {
 interface ProductDoc extends Document {
   _id: string;
   name: string;
+  description: string;
   images: string[];
   price: number;
   addons: {

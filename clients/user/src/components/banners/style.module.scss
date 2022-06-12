@@ -1,0 +1,21 @@
+@use "scss/breakpoints";
+@use "scss/config";
+@use "scss/mixins";
+
+.banners {
+  display: flex;
+  flex-shrink: 0;
+  width: 95%;
+  border-radius: config.$br_small;
+  overflow: auto;
+  aspect-ratio: 2/1;
+  height: auto;
+  gap: 1rem;
+  align-items: center;
+  .banner {
+    width: 100%;
+    aspect-ratio: 2/1;
+    object-fit: cover;
+    object-position: center;
+  }
+}
