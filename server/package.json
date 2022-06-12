@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node build/src/server.js",
-    "dev": " ts-node-dev src/server.ts"
+    "dev": " ts-node-dev src/server.ts",
+    "postinstall": "tsc"
   },
   "author": "tsriramaraju",
   "license": "MIT",
